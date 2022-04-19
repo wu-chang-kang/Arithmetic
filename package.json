@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wu-chang-kang/Arithmetic.git"
+    "url": "git+https://github.com/wu-chang-kang/leetcode.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wu-chang-kang/Arithmetic/issues"
+    "url": "https://github.com/wu-chang-kang/leetcode/issues"
   },
-  "homepage": "https://github.com/wu-chang-kang/Arithmetic#readme",
+  "homepage": "https://github.com/wu-chang-kang/leetcode#readme",
   "devDependencies": {
     "@types/node": "^17.0.21",
     "ts-node": "^10.5.0",
