@@ -1,21 +1,50 @@
 export function reorderLogFiles(logs: string[]): string[] {
-    const isNumber = (x: string) => /^\d*$/.test(x);
-    const compare = (str1: string, str2: string): number => {
-        let [arr1, arr2] = [str1.split(' ') ,str2.split(' ')];
-        if (isNumber(arr1[1]) && !isNumber(arr2[1])) {
-            return 1;
-        }
-        if (!isNumber(arr1[1]) && isNumber(arr2[1])) {
-            return -1;
-        }
-        if (!isNumber(arr1[1])) {
-            let [content1, content2] = [arr1.slice(1).join(' '), arr2.slice(1).join(' ')];
-            if (content1 != content2) {
-                return content1 > content2 ? 1 : -1;
-            }
-            return arr1[0] > arr2[0] ? 1 : -1;
-        }
+    const map: Record<string, number> = {
+      a: 1,
+      b: 2,
+      c: 3,
+      d: 4,
+      e: 5,
+      f: 6,
+      g: 7,
+      h: 8,
+      i: 9,
+      j: 10,
+      k: 11,
+      l: 12,
+      m: 13,
+      n: 14,
+      o: 15,
+      p: 16,
+      q: 17,
+      r: 18,
+      s: 19,
+      t: 20,
+      u: 21,
+      v: 22,
+      w: 23,
+      x: 24,
+      y: 25,
+      z: 26
     }
-    logs.sort(compare)
-    return logs
-};
+    const words: string[] = []
+    const numbers: string[] = []
+    logs.forEach((item) => {
+      let idx = item.indexOf(' ')
+      if (map[item[idx + 1]]) {
+        words.push(item)
+      } else {
+        numbers.push(item)
+      }
+    })
+    words.sort((a, b) => {
+      let astr = a.slice(a.indexOf(' '))
+      let bstr = b.slice(b.indexOf(' '))
+      if (astr === bstr) {
+        return a < b ? -1 : 1
+      }
+      return astr < bstr ? -1 : 1
+    })
+    return words.concat(numbers)
+  }
+  
