@@ -8,18 +8,18 @@ class TreeNode {
       this.left = left || null;
       this.right = right || null;
     }
-}
-
-export const sumRootToLeaf = (root: TreeNode | null): number => {
+  }
+  
+  export const sumRootToLeaf = (root: TreeNode | null): number => {
     const dfs = (r: TreeNode | null, s: number = 0): number => {
-        if (r) {
+      if (r) {
         s = s * 2 + r.val;
         if (!r.left && !r.right) {
-            return s;
+          return s;
         }
         return dfs(r.left, s) + dfs(r.right, s);
-        }
-        return 0;
-};
+      }
+      return 0;
+    };
     return dfs(root);
-};
+  };
